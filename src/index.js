@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const heartOfGames = (gameDescription, gameTask) => {
+export const getRandom = (max) => Math.round(Math.random() * max);
+
+export const heartOfGames = (gameDescription, gameTask) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
@@ -18,5 +20,3 @@ const heartOfGames = (gameDescription, gameTask) => {
   }
   return console.log(`Congratulations, ${name}!`);
 };
-
-export default heartOfGames;
