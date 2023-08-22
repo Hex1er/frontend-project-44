@@ -18,8 +18,8 @@ const gcdGame = () => {
       }
       return a;
     };
-    const res = getGcd(firstRandomNumber, secondRandomNumber).toString();
-    return [question, res];
+    const result = getGcd(firstRandomNumber, secondRandomNumber).toString();
+    return [question, result];
   };
   heartOfGames(gcdGameDescription, gcdGameTask);
 };

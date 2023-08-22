@@ -8,17 +8,18 @@ const calcGame = () => {
     const signs = ['+', '-', '*'];
     const randomSign = signs[getRandom(2)];
     const question = `${firstRandomNumber} ${randomSign} ${secondRandomNumber}`;
-    let res;
+    let result;
     if (randomSign === signs[0]) {
-      res = firstRandomNumber + secondRandomNumber;
+      result = firstRandomNumber + secondRandomNumber;
     } else if (randomSign === signs[1]) {
-      res = firstRandomNumber - secondRandomNumber;
+      result = firstRandomNumber - secondRandomNumber;
     } else {
-      res = firstRandomNumber * secondRandomNumber;
+      result = firstRandomNumber * secondRandomNumber;
     }
-    res = res.toString();
-    return [question, res];
+    result = result.toString();
+    return [question, result];
   };
   heartOfGames(calcGameDescription, calcGameTask);
 };
+
 export default calcGame;
