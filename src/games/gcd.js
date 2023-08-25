@@ -1,8 +1,8 @@
-import { getRandom, heartOfGames } from '../index.js';
+import { getRandom, runGeneralLogic } from '../index.js';
 
-const gcdGame = () => {
+const runGcdGame = () => {
   const gcdGameDescription = 'Find the greatest common divisor of given numbers.';
-  const gcdGameTask = () => {
+  const runGcdGameTask = () => {
     const firstRandomNumber = getRandom(100);
     const secondRandomNumber = getRandom(100);
     const question = `${firstRandomNumber} ${secondRandomNumber}`;
@@ -18,10 +18,10 @@ const gcdGame = () => {
       }
       return a;
     };
-    const result = getGcd(firstRandomNumber, secondRandomNumber).toString();
-    return [question, result];
+    const rightAnswer = getGcd(firstRandomNumber, secondRandomNumber).toString();
+    return [question, rightAnswer];
   };
-  heartOfGames(gcdGameDescription, gcdGameTask);
+  runGeneralLogic(gcdGameDescription, runGcdGameTask);
 };
 
-export default gcdGame;
+export default runGcdGame;

@@ -1,25 +1,25 @@
-import { getRandom, heartOfGames } from '../index.js';
+import { getRandom, runGeneralLogic } from '../index.js';
 
-const calcGame = () => {
+const runCalcGame = () => {
   const calcGameDescription = 'What is the result of the expression?';
-  const calcGameTask = () => {
+  const runCalcGameTask = () => {
     const firstRandomNumber = getRandom(100);
     const secondRandomNumber = getRandom(100);
     const signs = ['+', '-', '*'];
     const randomSign = signs[getRandom(2)];
     const question = `${firstRandomNumber} ${randomSign} ${secondRandomNumber}`;
-    let result;
+    let rightAnswer;
     if (randomSign === signs[0]) {
-      result = firstRandomNumber + secondRandomNumber;
+      rightAnswer = firstRandomNumber + secondRandomNumber;
     } else if (randomSign === signs[1]) {
-      result = firstRandomNumber - secondRandomNumber;
+      rightAnswer = firstRandomNumber - secondRandomNumber;
     } else {
-      result = firstRandomNumber * secondRandomNumber;
+      rightAnswer = firstRandomNumber * secondRandomNumber;
     }
-    result = result.toString();
-    return [question, result];
+    rightAnswer = rightAnswer.toString();
+    return [question, rightAnswer];
   };
-  heartOfGames(calcGameDescription, calcGameTask);
+  runGeneralLogic(calcGameDescription, runCalcGameTask);
 };
 
-export default calcGame;
+export default runCalcGame;

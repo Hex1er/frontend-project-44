@@ -1,8 +1,8 @@
-import { getRandom, heartOfGames } from '../index.js';
+import { getRandom, runGeneralLogic } from '../index.js';
 
-const primeGame = () => {
+const runPrimeGame = () => {
   const primeGameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const primeGameTask = () => {
+  const runPrimeGameTask = () => {
     const randomNumber = getRandom(100);
     const isPrime = (num) => {
       if (num < 2) {
@@ -16,11 +16,10 @@ const primeGame = () => {
       return true;
     };
     const question = randomNumber;
-    const result = isPrime(randomNumber) ? 'yes' : 'no';
-
-    return [question, result];
+    const rightAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+    return [question, rightAnswer];
   };
-  heartOfGames(primeGameDescription, primeGameTask);
+  runGeneralLogic(primeGameDescription, runPrimeGameTask);
 };
 
-export default primeGame;
+export default runPrimeGame;

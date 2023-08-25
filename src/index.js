@@ -4,16 +4,17 @@ export const getRandom = (max) => Math.round(Math.random() * max);
 
 export const getRandomRange = (min, max) => Math.round(Math.random() * (max - min) + min);
 
-export const heartOfGames = (gameDescription, gameTask) => {
+export const runGeneralLogic = (gameDescription, runGameTask) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(gameDescription);
-  for (let i = 0; i < 3; i += 1) {
-    const questionRes = gameTask();
-    console.log(`Question: ${questionRes[0]}`);
+  const numberOfRounds = 3;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const TakeQuestionAndAnswer = runGameTask();
+    console.log(`Question: ${TakeQuestionAndAnswer[0]}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = questionRes[1];
+    const correctAnswer = TakeQuestionAndAnswer[1];
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {

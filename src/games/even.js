@@ -1,14 +1,14 @@
-import { getRandom, heartOfGames } from '../index.js';
+import { getRandom, runGeneralLogic } from '../index.js';
 
-const evenGame = () => {
+const runEvenGame = () => {
   const evenGameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const evenGameTask = () => {
+  const runEvenGameTask = () => {
     const question = getRandom(100);
     const isEven = (num) => num % 2 === 0;
-    const result = isEven(question) ? 'yes' : 'no';
-    return [question, result];
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
+    return [question, rightAnswer];
   };
-  heartOfGames(evenGameDescription, evenGameTask);
+  runGeneralLogic(evenGameDescription, runEvenGameTask);
 };
 
-export default evenGame;
+export default runEvenGame;

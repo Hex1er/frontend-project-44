@@ -1,8 +1,8 @@
-import { getRandom, getRandomRange, heartOfGames } from '../index.js';
+import { getRandom, getRandomRange, runGeneralLogic } from '../index.js';
 
-const progressionGame = () => {
+const runProgressionGame = () => {
   const progressDescription = 'What number is missing in the progression?';
-  const progressGameTask = () => {
+  const runProgressGameTask = () => {
     const firstNumber = getRandom(100);
     const step = getRandomRange(1, 10);
     const length = 10;
@@ -13,13 +13,12 @@ const progressionGame = () => {
     const randomNumberIndex = getRandomRange(0, length - 1);
     const hiddenNumber = progression[randomNumberIndex];
     progression[randomNumberIndex] = '..';
-
     const question = progression.join(' ');
-    const result = hiddenNumber.toString();
-    return [question, result];
+    const rightAnswer = hiddenNumber.toString();
+    return [question, rightAnswer];
   };
 
-  heartOfGames(progressDescription, progressGameTask);
+  runGeneralLogic(progressDescription, runProgressGameTask);
 };
 
-export default progressionGame;
+export default runProgressionGame;
