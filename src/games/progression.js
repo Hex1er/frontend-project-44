@@ -1,13 +1,19 @@
-import { getRandom, runGeneralLogic } from '../index.js';
+import runGeneralLogic from '../index.js';
+import getRandom from '../utils.js';
+
+const createProgression = (firstNumber, step, length) => {
+  const progression = [];
+  for (let i = 0; i < length; i += 1) {
+    progression.push(firstNumber + step * i);
+  }
+  return progression;
+};
 
 const getProgressGameTask = () => {
   const firstNumber = getRandom(100);
   const step = getRandom(1, 10);
   const length = 10;
-  const progression = [];
-  for (let i = 0; i < length; i += 1) {
-    progression.push(firstNumber + step * i);
-  }
+  const progression = createProgression(firstNumber, step, length);
   const randomNumberIndex = getRandom(0, length - 1);
   const hiddenNumber = progression[randomNumberIndex];
   progression[randomNumberIndex] = '..';

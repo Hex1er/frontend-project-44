@@ -1,14 +1,13 @@
-import { getRandom, runGeneralLogic } from '../index.js';
+import runGeneralLogic from '../index.js';
+import getRandom from '../utils.js';
 
-const getGcd = (num1, num2) => {
+const getGCD = (num1, num2) => {
   let a = num1;
   let b = num2;
-  while (a !== b) {
-    if (a > b) {
-      a -= b;
-    } else {
-      b -= a;
-    }
+  while (b !== 0) {
+    const remainder = a % b;
+    a = b;
+    b = remainder;
   }
   return a;
 };
@@ -17,7 +16,7 @@ const getGcdGameTask = () => {
   const firstRandomNumber = getRandom(100);
   const secondRandomNumber = getRandom(100);
   const question = `${firstRandomNumber} ${secondRandomNumber}`;
-  const rightAnswer = getGcd(firstRandomNumber, secondRandomNumber).toString();
+  const rightAnswer = getGCD(firstRandomNumber, secondRandomNumber).toString();
   return [question, rightAnswer];
 };
 

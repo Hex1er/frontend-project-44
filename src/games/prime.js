@@ -1,4 +1,5 @@
-import { getRandom, runGeneralLogic } from '../index.js';
+import runGeneralLogic from '../index.js';
+import getRandom from '../utils.js';
 
 const isPrime = (num) => {
   if (num < 2) {

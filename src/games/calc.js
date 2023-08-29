@@ -1,4 +1,14 @@
-import { getRandom, runGeneralLogic } from '../index.js';
+import runGeneralLogic from '../index.js';
+import getRandom from '../utils.js';
+
+const calculateAnswer = (firstNumber, secondNumber, operator) => {
+  if (operator === '+') {
+    return firstNumber + secondNumber;
+  } if (operator === '-') {
+    return firstNumber - secondNumber;
+  }
+  return firstNumber * secondNumber;
+};
 
 const getCalcGameTask = () => {
   const firstRandomNumber = getRandom(100);
@@ -6,15 +16,7 @@ const getCalcGameTask = () => {
   const signs = ['+', '-', '*'];
   const randomSign = signs[getRandom(2)];
   const question = `${firstRandomNumber} ${randomSign} ${secondRandomNumber}`;
-  let rightAnswer;
-  if (randomSign === signs[0]) {
-    rightAnswer = firstRandomNumber + secondRandomNumber;
-  } else if (randomSign === signs[1]) {
-    rightAnswer = firstRandomNumber - secondRandomNumber;
-  } else {
-    rightAnswer = firstRandomNumber * secondRandomNumber;
-  }
-  rightAnswer = rightAnswer.toString();
+  const rightAnswer = calculateAnswer(firstRandomNumber, secondRandomNumber, randomSign).toString();
   return [question, rightAnswer];
 };
 
